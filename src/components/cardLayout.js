@@ -8,7 +8,7 @@ class CardLayout extends Component {
 
   render() {
     return (
-      <div className="main-div">
+      <div className="cardLayout-container">
         <div className="toolBar">
           <div>
             <span>Search by Name</span>

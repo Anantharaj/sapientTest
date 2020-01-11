@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 
 import CardLayout from "../components/cardLayout";
+import Filters from "../components/filters";
 
 class Home extends Component {
   constructor(props) {
@@ -73,9 +74,29 @@ class Home extends Component {
     this.getCharacterLists();
   }
 
+  doFilter(value) {
+    console.log(this.state.characterList);
+    const key = Object.keys(value)[0].toLowerCase();
+    console.log(value[key]);
+
+    const filterData = this.state.characterList.filter(data => {
+      if (key === "human" || key === "mytholog" || key === "otherSpecies")
+        return data.species.toLowerCase() === key;
+    });
+    this.setState({
+      characterList: filterData
+    });
+  }
+
   render() {
+    console.log(this.state.characterList);
     return (
-      <div className="">
+      <div className="home-container">
+        <Filters
+          doFilter={val => {
+            this.doFilter(val);
+          }}
+        ></Filters>
         <CardLayout
           characters={this.state.characterList}
           searchByName={this.searchByName}
