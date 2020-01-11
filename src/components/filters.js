@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Card from "./card";
 
 class Filters extends Component {
   constructor(props) {
@@ -9,7 +8,10 @@ class Filters extends Component {
       mytholog: true,
       otherSpecies: true,
       male: true,
-      female: true
+      female: true,
+      unknown: true,
+      nuptia: true,
+      otherOrgin: true
     };
   }
 
@@ -18,7 +20,7 @@ class Filters extends Component {
     this.setState({
       [name]: !this.state[name]
     });
-    this.props.doFilter({ [name]: this.state[name] });
+    //this.props.doFilter({ [name]: this.state[name] });
   };
 
   render() {
@@ -67,7 +69,7 @@ class Filters extends Component {
             <label>
               <input
                 type="checkbox"
-                name="otherSpecies"
+                name="male"
                 checked={this.state.male}
                 onChange={() => {
                   this.toggleChange("male");
@@ -78,7 +80,7 @@ class Filters extends Component {
             <label>
               <input
                 type="checkbox"
-                name="otherSpecies"
+                name="female"
                 checked={this.state.female}
                 onChange={() => {
                   this.toggleChange("female");
@@ -92,10 +94,10 @@ class Filters extends Component {
             <label>
               <input
                 type="checkbox"
-                name="otherSpecies"
-                checked={this.state.otherSpecies}
+                name="unknown"
+                checked={this.state.unknown}
                 onChange={() => {
-                  this.toggleChange("otherSpecies");
+                  this.toggleChange("unknown");
                 }}
               />
               UnKnown
@@ -103,10 +105,10 @@ class Filters extends Component {
             <label>
               <input
                 type="checkbox"
-                name="otherSpecies"
-                checked={this.state.otherSpecies}
+                name="post"
+                checked={this.state.post}
                 onChange={() => {
-                  this.toggleChange("otherSpecies");
+                  this.toggleChange("post");
                 }}
               />
               Post-Apocatyptic
@@ -114,10 +116,10 @@ class Filters extends Component {
             <label>
               <input
                 type="checkbox"
-                name="otherSpecies"
-                checked={this.state.otherSpecies}
+                name="nuptia"
+                checked={this.state.nuptia}
                 onChange={() => {
-                  this.toggleChange("otherSpecies");
+                  this.toggleChange("nuptia");
                 }}
               />
               Nuptia 4
@@ -125,10 +127,10 @@ class Filters extends Component {
             <label>
               <input
                 type="checkbox"
-                name="otherSpecies"
-                checked={this.state.otherSpecies}
+                name="otherOrgin"
+                checked={this.state.otherOrgin}
                 onChange={() => {
-                  this.toggleChange("otherSpecies");
+                  this.toggleChange("otherOrgin");
                 }}
               />
               Other Orgin
